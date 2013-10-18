@@ -18,8 +18,9 @@
     return [NSURL fileURLWithPathComponents:pathComponents];
 }
 
-+(NSString *) getErrorInfoWithError: (NSError*) error inMethod: (SEL)method inClass: (NSString *)classStr{
-    return [NSString stringWithFormat:@"%@ (%@): %@", classStr, NSStringFromSelector(method),error.description];
++(void) getErrorInfoWithError: (NSError*) error inMethod: (SEL)method inClass: (NSString *)classStr{
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[NSString stringWithFormat:@"%@ (%@): %@", classStr, NSStringFromSelector(method),error.description]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+    [errorAlert show];
 }
 
 @end

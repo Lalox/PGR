@@ -34,6 +34,10 @@
         audioManager = [[PMAudioManager alloc] init];
         audioManager.delegate = self;
         [audioManager prepareRecordingWithURL:outputFileURL];
+        if (!audioArray){
+            audioArray = [[NSMutableArray alloc] init];
+        }
+        [audioArray addObject:@"Reporte_Inicial.caf"];
     }
     return self;
 }
@@ -120,8 +124,11 @@
     return CGSizeMake(75, 75);
 }
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-	return 1;
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view = [[UIImageView alloc] initWithImage:[imagesArray objectAtIndex:indexPath.row]];
+	[vc.view setFrame:[[UIScreen mainScreen] bounds]];
+	[self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark PMAudioManagerDelegate Methods
@@ -130,16 +137,19 @@
     NSError *error;
     fileManger = [NSFileManager defaultManager];
     
-    NSURL *theNewURL = [PMUtilityManager getPathWithName:[NSString stringWithFormat:@"Audio_%d.caf",([audioArray count]+1)]];
+    NSURL *theNewURL = [PMUtilityManager getPathWithName:[NSString stringWithFormat:@"Audio_%d.caf",[audioArray count]]];
     
+    if([fileManger fileExistsAtPath:[theNewURL path]]){
+        [fileManger removeItemAtURL:theNewURL error:&error];
+        if(error){
+            [PMUtilityManager getErrorInfoWithError:error inMethod:_cmd inClass:NSStringFromClass([self class])];
+            return;
+        }
+    }
     [fileManger moveItemAtURL:outputFileURL toURL:theNewURL error:&error];
     if(error){
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[PMUtilityManager getErrorInfoWithError:error inMethod:_cmd inClass:NSStringFromClass([self class])]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
-        [errorAlert show];
+        [PMUtilityManager getErrorInfoWithError:error inMethod:_cmd inClass:NSStringFromClass([self class])];
     }else{
-        if (!audioArray){
-            audioArray = [[NSMutableArray alloc] init];
-        }
         [audioArray addObject:[theNewURL lastPathComponent]];
         [_audioListTable reloadData];
     }
