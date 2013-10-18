@@ -28,7 +28,7 @@
     NSError *error;
     recorder = [[AVAudioRecorder alloc] initWithURL:url settings:recordSetting error:&error];
     if (error) {
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:[self getErrorInfoWithError:error inMethod:_cmd]  delegate:self cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[self getErrorInfoWithError:error inMethod:_cmd]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
         [errorAlert show];
     }else{
         recorder.delegate = self;
@@ -54,7 +54,7 @@
     NSError *error;
     [audioSession setActive:YES error:&error];
     if (error) {
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:[self getErrorInfoWithError:error inMethod:_cmd]  delegate:self cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[self getErrorInfoWithError:error inMethod:_cmd]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
         [errorAlert show];
     }else{
         [recorder record];
@@ -70,7 +70,7 @@
     player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorderM.url error:&error];
     [player setDelegate:self];
     if (error) {
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:[self getErrorInfoWithError:error inMethod:_cmd]  delegate:self cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[self getErrorInfoWithError:error inMethod:_cmd]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
         [errorAlert show];
     }else{
         [player play];

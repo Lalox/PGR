@@ -1,2 +1,6 @@
 /* Localized versions of Info.plist keys */
 
+
+//Cuadros de diálogo
+"Error" = "Error";
+"OK" = "Aceptar";
