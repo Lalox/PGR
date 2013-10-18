@@ -28,7 +28,7 @@
     NSError *error;
     recorder = [[AVAudioRecorder alloc] initWithURL:url settings:recordSetting error:&error];
     if (error) {
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[self getErrorInfoWithError:error inMethod:_cmd]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[PMUtilityManager getErrorInfoWithError:error inMethod:_cmd inClass:NSStringFromClass([self class])]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
         [errorAlert show];
     }else{
         recorder.delegate = self;
@@ -39,9 +39,14 @@
 
 -(void)stopPlayingRecording{
     // Stop recording
+    NSError *error;
     [recorder stop];
     audioSession = [AVAudioSession sharedInstance];
-    [audioSession setActive:NO error:nil];
+    [audioSession setActive:NO error:&error];
+    if (error) {
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[PMUtilityManager getErrorInfoWithError:error inMethod:_cmd inClass:NSStringFromClass([self class])]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+        [errorAlert show];
+    }
 }
 
 -(void)startRecording{
@@ -54,15 +59,28 @@
     NSError *error;
     [audioSession setActive:YES error:&error];
     if (error) {
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[self getErrorInfoWithError:error inMethod:_cmd]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[PMUtilityManager getErrorInfoWithError:error inMethod:_cmd inClass:NSStringFromClass([self class])]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
         [errorAlert show];
     }else{
         [recorder record];
     }
 }
 
--(void)playRecordinWithURL:(NSString *)url{
-
+-(void)playWithURL:(NSURL *)url{
+    NSError *error;
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    if (error) {
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[PMUtilityManager getErrorInfoWithError:error inMethod:_cmd inClass:NSStringFromClass([self class])]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+        [errorAlert show];
+    }else{
+        [audioSession setActive:YES error:&error];
+        if (error) {
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[PMUtilityManager getErrorInfoWithError:error inMethod:_cmd inClass:NSStringFromClass([self class])]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+            [errorAlert show];
+        }else{
+            [player play];
+        }
+    }
 }
 
 -(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorderM successfully:(BOOL)flag{
@@ -70,17 +88,10 @@
     player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorderM.url error:&error];
     [player setDelegate:self];
     if (error) {
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[self getErrorInfoWithError:error inMethod:_cmd]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[PMUtilityManager getErrorInfoWithError:error inMethod:_cmd inClass:NSStringFromClass([self class])]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
         [errorAlert show];
-    }else{
-        [player play];
     }
     [self.delegate finishRecordingPlaying];
-}
-
-
--(NSString *) getErrorInfoWithError: (NSError*) error inMethod: (SEL)method{
-    return [NSString stringWithFormat:@"%@ (%@): %@", NSStringFromClass([self class]), NSStringFromSelector(method),error.description];
 }
 
 @end
