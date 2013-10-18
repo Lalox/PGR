@@ -73,9 +73,9 @@
         UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[self getErrorInfoWithError:error inMethod:_cmd]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
         [errorAlert show];
     }else{
-        [player play];
+//        [player play];
     }
-    [self.delegate finishRecordingPlaying];
+    [self.delegate finishRecordingPlayingWithAudioUrl:recorderM.url];
 }
 
 

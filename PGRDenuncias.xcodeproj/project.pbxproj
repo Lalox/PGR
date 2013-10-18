@@ -37,6 +37,9 @@
 		AF6AE0EC180F97B200EF1365 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6AE0EB180F97B200EF1365 /* AVFoundation.framework */; };
 		AF6AE0F0180FA0C500EF1365 /* PMAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6AE0EF180FA0C500EF1365 /* PMAudioManager.m */; };
 		AF6AE0F3181039B400EF1365 /* camara.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6AE0F2181039B400EF1365 /* camara.png */; };
+		CD12D9E81811AC3200773ADE /* PMConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12D9E71811AC3200773ADE /* PMConnectionHandler.m */; };
+		CD12D9ED1811C27900773ADE /* PMAjustes.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12D9EB1811C27900773ADE /* PMAjustes.m */; };
+		CD12D9EE1811C27900773ADE /* PMAjustes.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD12D9EC1811C27900773ADE /* PMAjustes.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,11 @@
 		AF6AE0EE180FA0C500EF1365 /* PMAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMAudioManager.h; path = Componentes/PMAudioManager.h; sourceTree = "<group>"; };
 		AF6AE0EF180FA0C500EF1365 /* PMAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMAudioManager.m; path = Componentes/PMAudioManager.m; sourceTree = "<group>"; };
 		AF6AE0F2181039B400EF1365 /* camara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camara.png; sourceTree = "<group>"; };
+		CD12D9E61811AC3200773ADE /* PMConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMConnectionHandler.h; sourceTree = "<group>"; };
+		CD12D9E71811AC3200773ADE /* PMConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMConnectionHandler.m; sourceTree = "<group>"; };
+		CD12D9EA1811C27900773ADE /* PMAjustes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAjustes.h; sourceTree = "<group>"; };
+		CD12D9EB1811C27900773ADE /* PMAjustes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAjustes.m; sourceTree = "<group>"; };
+		CD12D9EC1811C27900773ADE /* PMAjustes.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMAjustes.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				AF6AE0C9180F863600EF1365 /* Recursos */,
+				CD12D9E91811C26C00773ADE /* Ajustes */,
 				AF6AE0C3180F84D800EF1365 /* Principal */,
 				AF6AE0E4180F948100EF1365 /* Evidencias */,
 				AF6AE0A3180F84AF00EF1365 /* PMAppDelegate.h */,
@@ -201,6 +210,7 @@
 		AF6AE0C9180F863600EF1365 /* Recursos */ = {
 			isa = PBXGroup;
 			children = (
+				CD12D9E51811AC1B00773ADE /* ConnectionHandler */,
 				AF6AE0ED180F9A9900EF1365 /* Componentes */,
 				AF6AE0CD180F86C100EF1365 /* Imágenes */,
 			);
@@ -244,6 +254,25 @@
 				AF6AE0EF180FA0C500EF1365 /* PMAudioManager.m */,
 			);
 			name = Componentes;
+			sourceTree = "<group>";
+		};
+		CD12D9E51811AC1B00773ADE /* ConnectionHandler */ = {
+			isa = PBXGroup;
+			children = (
+				CD12D9E61811AC3200773ADE /* PMConnectionHandler.h */,
+				CD12D9E71811AC3200773ADE /* PMConnectionHandler.m */,
+			);
+			name = ConnectionHandler;
+			sourceTree = "<group>";
+		};
+		CD12D9E91811C26C00773ADE /* Ajustes */ = {
+			isa = PBXGroup;
+			children = (
+				CD12D9EA1811C27900773ADE /* PMAjustes.h */,
+				CD12D9EB1811C27900773ADE /* PMAjustes.m */,
+				CD12D9EC1811C27900773ADE /* PMAjustes.xib */,
+			);
+			name = Ajustes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +364,7 @@
 				AF6AE0EA180F952200EF1365 /* PMEvidenciasViewController.xib in Resources */,
 				AF6AE0C8180F851400EF1365 /* PMPrincipalViewController.xib in Resources */,
 				AF6AE0DF180F86C100EF1365 /* micro.png in Resources */,
+				CD12D9EE1811C27900773ADE /* PMAjustes.xib in Resources */,
 				AF6AE0A7180F84AF00EF1365 /* Images.xcassets in Resources */,
 				AF6AE0DB180F86C100EF1365 /* body.png in Resources */,
 				AF6AE0E0180F86C100EF1365 /* micro_selected.png in Resources */,
@@ -359,8 +389,10 @@
 			files = (
 				AF6AE0A1180F84AF00EF1365 /* main.m in Sources */,
 				AF6AE0A5180F84AF00EF1365 /* PMAppDelegate.m in Sources */,
+				CD12D9ED1811C27900773ADE /* PMAjustes.m in Sources */,
 				AF6AE0E9180F952200EF1365 /* PMEvidenciasViewController.m in Sources */,
 				AF6AE0F0180FA0C500EF1365 /* PMAudioManager.m in Sources */,
+				CD12D9E81811AC3200773ADE /* PMConnectionHandler.m in Sources */,
 				AF6AE0C7180F851400EF1365 /* PMPrincipalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,6 +594,7 @@
 				AF6AE0BF180F84AF00EF1365 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF6AE0C0180F84AF00EF1365 /* Build configuration list for PBXNativeTarget "PGRDenunciasTests" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +603,7 @@
 				AF6AE0C2180F84AF00EF1365 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -11,8 +11,9 @@
 
 #import "PMAudioManager.h"
 #import "PMEvidenciasViewController.h"
+#import "PMConnectionHandler.h"
 
-@interface PMPrincipalViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate, PMAudioManagerDelegate>
+@interface PMPrincipalViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate, PMAudioManagerDelegate, ConnectionHandlerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *recordBtn;
 @end

@@ -11,7 +11,8 @@
 
 @protocol PMAudioManagerDelegate <NSObject>
 
--(void)finishRecordingPlaying;
+//-(void)finishRecordingPlaying;
+-(void)finishRecordingPlayingWithAudioUrl:(NSURL *)url;
 
 @end
 
