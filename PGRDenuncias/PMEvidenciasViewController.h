@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PMAudioManager.h"
 
-@interface PMEvidenciasViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface PMEvidenciasViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PMAudioManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *cameraBtn;
 @property (strong, nonatomic) IBOutlet UIButton *microBtn;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UITableView *audioListTable;
+
 - (IBAction)takePicture:(id)sender;
 - (IBAction)recordAudio:(id)sender;
 - (IBAction)selectView:(id)sender;
