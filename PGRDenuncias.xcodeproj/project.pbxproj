@@ -252,6 +252,8 @@
 			children = (
 				AF6AE0EE180FA0C500EF1365 /* PMAudioManager.h */,
 				AF6AE0EF180FA0C500EF1365 /* PMAudioManager.m */,
+				AFEF94621811BA670086CDED /* PMUtilityManager.h */,
+				AFEF94631811BA670086CDED /* PMUtilityManager.m */,
 			);
 			name = Componentes;
 			sourceTree = "<group>";
@@ -394,6 +396,7 @@
 				AF6AE0F0180FA0C500EF1365 /* PMAudioManager.m in Sources */,
 				CD12D9E81811AC3200773ADE /* PMConnectionHandler.m in Sources */,
 				AF6AE0C7180F851400EF1365 /* PMPrincipalViewController.m in Sources */,
+				AFEF94641811BA670086CDED /* PMUtilityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

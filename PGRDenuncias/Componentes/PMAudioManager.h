@@ -27,7 +27,7 @@
 -(void)prepareRecordingWithURL: (NSURL*)url;
 -(void)startRecording;
 -(void)stopPlayingRecording;
--(void)playRecordinWithURL: (NSString*)url;
+-(void)playWithURL: (NSURL*)url;
 
 @end
 

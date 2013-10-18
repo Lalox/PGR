@@ -24,12 +24,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         //Set audio file
-        NSArray *pathComponents = [NSArray arrayWithObjects:
-                                   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                                   @"Reporte_Inicial.caf",
-                                   nil];
-        
-        NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+        NSURL *outputFileURL = [PMUtilityManager getPathWithName:@"Reporte_Inicial.caf"];
         audioManager = [[PMAudioManager alloc] init];
         audioManager.delegate = self;
         [audioManager prepareRecordingWithURL:outputFileURL];
