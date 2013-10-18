@@ -11,6 +11,6 @@
 @interface PMUtilityManager : NSObject
 
 +(NSURL *)getPathWithName: (NSString*)name;
-+(NSString *) getErrorInfoWithError: (NSError*) error inMethod: (SEL)method inClass: (NSString *)classStr;
++(void) getErrorInfoWithError: (NSError*) error inMethod: (SEL)method inClass: (NSString *)classStr;
 
 @end
