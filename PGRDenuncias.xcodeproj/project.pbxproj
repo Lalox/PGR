@@ -37,6 +37,7 @@
 		AF6AE0EC180F97B200EF1365 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6AE0EB180F97B200EF1365 /* AVFoundation.framework */; };
 		AF6AE0F0180FA0C500EF1365 /* PMAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6AE0EF180FA0C500EF1365 /* PMAudioManager.m */; };
 		AF6AE0F3181039B400EF1365 /* camara.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6AE0F2181039B400EF1365 /* camara.png */; };
+		AFEF94641811BA670086CDED /* PMUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEF94631811BA670086CDED /* PMUtilityManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		AF6AE0EE180FA0C500EF1365 /* PMAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMAudioManager.h; path = Componentes/PMAudioManager.h; sourceTree = "<group>"; };
 		AF6AE0EF180FA0C500EF1365 /* PMAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMAudioManager.m; path = Componentes/PMAudioManager.m; sourceTree = "<group>"; };
 		AF6AE0F2181039B400EF1365 /* camara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camara.png; sourceTree = "<group>"; };
+		AFEF94621811BA670086CDED /* PMUtilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMUtilityManager.h; sourceTree = "<group>"; };
+		AFEF94631811BA670086CDED /* PMUtilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMUtilityManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +245,8 @@
 			children = (
 				AF6AE0EE180FA0C500EF1365 /* PMAudioManager.h */,
 				AF6AE0EF180FA0C500EF1365 /* PMAudioManager.m */,
+				AFEF94621811BA670086CDED /* PMUtilityManager.h */,
+				AFEF94631811BA670086CDED /* PMUtilityManager.m */,
 			);
 			name = Componentes;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				AF6AE0E9180F952200EF1365 /* PMEvidenciasViewController.m in Sources */,
 				AF6AE0F0180FA0C500EF1365 /* PMAudioManager.m in Sources */,
 				AF6AE0C7180F851400EF1365 /* PMPrincipalViewController.m in Sources */,
+				AFEF94641811BA670086CDED /* PMUtilityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +568,7 @@
 				AF6AE0BF180F84AF00EF1365 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF6AE0C0180F84AF00EF1365 /* Build configuration list for PBXNativeTarget "PGRDenunciasTests" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +577,7 @@
 				AF6AE0C2180F84AF00EF1365 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
