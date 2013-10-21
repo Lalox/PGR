@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PMAudioManager.h"
 #import "PMAutorizacionViewController.h"
 
-@interface PMEvidenciasViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PMAudioManagerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface PMEvidenciasViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *cameraBtn;
 @property (strong, nonatomic) IBOutlet UIButton *microBtn;

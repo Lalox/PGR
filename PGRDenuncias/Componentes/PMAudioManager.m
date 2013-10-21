@@ -85,7 +85,7 @@
     if (error) {
         [PMUtilityManager getErrorInfoWithError:error inMethod:_cmd inClass:NSStringFromClass([self class])];
     }
-    [self.delegate finishRecordingPlaying];
+    [self.delegate finishRecordingPlayingWithAudioUrl:recorderM.url];
 }
 
 @end

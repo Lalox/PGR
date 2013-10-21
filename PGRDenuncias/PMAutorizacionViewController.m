@@ -55,4 +55,8 @@
     [self.navigationController pushViewController:videoVC animated:YES];
 }
 
+- (void)finishRecordingPlayingWithAudioUrl:(NSURL *)url{
+
+}
+
 @end
