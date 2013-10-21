@@ -4,3 +4,9 @@
 //Cuadros de diálogo
 "Error" = "Error";
 "OK" = "Aceptar";
+"NoConnection" = "No se detecta conexión a Internet ¿Desea continuar?";
+
+//Nombres de pantalla
+"Evidencies" = "Evidenvias";
+"Authorization" = "Autorización";
+"Send" = "Enviar";

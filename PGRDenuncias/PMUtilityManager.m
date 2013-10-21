@@ -19,8 +19,37 @@
 }
 
 +(void) getErrorInfoWithError: (NSError*) error inMethod: (SEL)method inClass: (NSString *)classStr{
-    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[NSString stringWithFormat:@"%@ (%@): %@", classStr, NSStringFromSelector(method),error.description]  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:[[NSBundle mainBundle] localizedStringForKey:(@"Error") value:@"Error" table:nil] message:[NSString stringWithFormat:@"%@ (%@): %@", classStr, NSStringFromSelector(method),error.description]  delegate:self cancelButtonTitle:[[NSBundle mainBundle] localizedStringForKey:(@"OK") value:@"Aceptar" table:nil] otherButtonTitles:nil];
     [errorAlert show];
+}
+
++(BOOL) isThereInternetAccess{
+    Reachability *hostReach = [Reachability reachabilityWithHostName: @"www.google.com"];
+    
+    NetworkStatus netStatus = [hostReach currentReachabilityStatus];
+    
+    switch (netStatus)
+    {
+        case ReachableViaWWAN:
+        {
+            NSLog(@"WWAN/3G");
+            return YES;
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"WIFI");
+            return YES;
+            break;
+        }
+        case NotReachable:
+        {
+            NSLog(@"NO Internet");
+            return NO;
+            break;
+        }
+    }
+    return YES;
 }
 
 @end

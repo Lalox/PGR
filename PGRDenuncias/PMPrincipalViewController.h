@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
 
 #import "PMAudioManager.h"
 #import "PMEvidenciasViewController.h"
 
-@interface PMPrincipalViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate, PMAudioManagerDelegate>
+@interface PMPrincipalViewController : UIViewController <PMAudioManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *recordBtn;
 @end

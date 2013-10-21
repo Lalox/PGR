@@ -15,12 +15,12 @@
     //Image management variables
     NSMutableArray *imagesArray;
     UIImagePickerController *pickerController;
-    PMAudioManager *audioManager;
     
     //Audio management variables
     NSMutableArray *audioArray;
     NSURL *outputFileURL;
     NSFileManager *fileManger;
+    PMAudioManager *audioManager;
 }
 
 @end
@@ -42,11 +42,23 @@
     return self;
 }
 
+- (void) sendInformation:(id)sender{
+    if (![PMUtilityManager isThereInternetAccess]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[[NSBundle mainBundle] localizedStringForKey:(@"Error") value:@"Error" table:nil] message:[[NSBundle mainBundle] localizedStringForKey:(@"NoConnection") value:@"No se detecta conexión a Internet ¿Desea continuar?" table:nil] delegate:self cancelButtonTitle:[[NSBundle mainBundle] localizedStringForKey:(@"OK") value:@"Aceptar" table:nil] otherButtonTitles:nil];
+        [alert show];
+    }else{
+        PMAutorizacionViewController *vc = [[PMAutorizacionViewController alloc]initWithNibName:@"PMAutorizacionViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
 
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:_ID_IMAGE_CELL_];
     [_audioListTable registerClass:[UITableViewCell class] forCellReuseIdentifier:_ID_AUDIO_CELL_];
+    self.navigationItem.title = [[NSBundle mainBundle] localizedStringForKey:(@"Evidences") value:@"Evidencias" table:nil];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[[NSBundle mainBundle] localizedStringForKey:(@"Send") value:@"Enviar" table:nil] style:UIBarButtonItemStyleBordered target:self action:@selector(sendInformation:)];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -107,7 +119,7 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark UIImagePickerDelegate and Datasource
+#pragma mark UICollectionViewDelegate and Datasource
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:_ID_IMAGE_CELL_ forIndexPath:indexPath];
