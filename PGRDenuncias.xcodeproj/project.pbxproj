@@ -37,6 +37,9 @@
 		AF6AE0EC180F97B200EF1365 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6AE0EB180F97B200EF1365 /* AVFoundation.framework */; };
 		AF6AE0F0180FA0C500EF1365 /* PMAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6AE0EF180FA0C500EF1365 /* PMAudioManager.m */; };
 		AF6AE0F3181039B400EF1365 /* camara.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6AE0F2181039B400EF1365 /* camara.png */; };
+		AFCB3BED181578F100B6C6E4 /* PMConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCB3BEC181578F100B6C6E4 /* PMConnectionHandler.m */; };
+		AFCB3BEF181578FF00B6C6E4 /* PMAjustes.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCB3BEE181578FF00B6C6E4 /* PMAjustes.m */; };
+		AFCB3BF21815793B00B6C6E4 /* PMAjustes.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCB3BF11815793B00B6C6E4 /* PMAjustes.xib */; };
 		AFEF94641811BA670086CDED /* PMUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEF94631811BA670086CDED /* PMUtilityManager.m */; };
 		AFEF94691811EE9F0086CDED /* PMAutorizacionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEF94671811EE9F0086CDED /* PMAutorizacionViewController.m */; };
 		AFEF946A1811EE9F0086CDED /* PMAutorizacionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFEF94681811EE9F0086CDED /* PMAutorizacionViewController.xib */; };
@@ -94,6 +97,11 @@
 		AF6AE0EE180FA0C500EF1365 /* PMAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMAudioManager.h; path = Componentes/PMAudioManager.h; sourceTree = "<group>"; };
 		AF6AE0EF180FA0C500EF1365 /* PMAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMAudioManager.m; path = Componentes/PMAudioManager.m; sourceTree = "<group>"; };
 		AF6AE0F2181039B400EF1365 /* camara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camara.png; sourceTree = "<group>"; };
+		AFCB3BEA181578F100B6C6E4 /* PMAjustes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAjustes.h; sourceTree = "<group>"; };
+		AFCB3BEB181578F100B6C6E4 /* PMConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMConnectionHandler.h; sourceTree = "<group>"; };
+		AFCB3BEC181578F100B6C6E4 /* PMConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMConnectionHandler.m; sourceTree = "<group>"; };
+		AFCB3BEE181578FF00B6C6E4 /* PMAjustes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAjustes.m; sourceTree = "<group>"; };
+		AFCB3BF11815793B00B6C6E4 /* PMAjustes.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMAjustes.xib; sourceTree = "<group>"; };
 		AFEF94621811BA670086CDED /* PMUtilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMUtilityManager.h; sourceTree = "<group>"; };
 		AFEF94631811BA670086CDED /* PMUtilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMUtilityManager.m; sourceTree = "<group>"; };
 		AFEF94661811EE9F0086CDED /* PMAutorizacionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAutorizacionViewController.h; sourceTree = "<group>"; };
@@ -170,6 +178,7 @@
 			children = (
 				AF6AE0C9180F863600EF1365 /* Recursos */,
 				AF6AE0C3180F84D800EF1365 /* Principal */,
+				AFCB3BF01815792300B6C6E4 /* Ajustes */,
 				AF6AE0E4180F948100EF1365 /* Evidencias */,
 				AFEF94651811EDB10086CDED /* Autorización */,
 				AFEF94701814DBAE0086CDED /* Video */,
@@ -262,6 +271,8 @@
 		AF6AE0ED180F9A9900EF1365 /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
+				AFCB3BEB181578F100B6C6E4 /* PMConnectionHandler.h */,
+				AFCB3BEC181578F100B6C6E4 /* PMConnectionHandler.m */,
 				AFEF946D1811F3EF0086CDED /* Reachability.h */,
 				AFEF946E1811F3EF0086CDED /* Reachability.m */,
 				AF6AE0EE180FA0C500EF1365 /* PMAudioManager.h */,
@@ -270,6 +281,16 @@
 				AFEF94631811BA670086CDED /* PMUtilityManager.m */,
 			);
 			name = Componentes;
+			sourceTree = "<group>";
+		};
+		AFCB3BF01815792300B6C6E4 /* Ajustes */ = {
+			isa = PBXGroup;
+			children = (
+				AFCB3BEA181578F100B6C6E4 /* PMAjustes.h */,
+				AFCB3BEE181578FF00B6C6E4 /* PMAjustes.m */,
+				AFCB3BF11815793B00B6C6E4 /* PMAjustes.xib */,
+			);
+			name = Ajustes;
 			sourceTree = "<group>";
 		};
 		AFEF94651811EDB10086CDED /* Autorización */ = {
@@ -371,6 +392,7 @@
 			files = (
 				AF6AE0E1180F86C100EF1365 /* PGR@2x.png in Resources */,
 				AF6AE09F180F84AF00EF1365 /* InfoPlist.strings in Resources */,
+				AFCB3BF21815793B00B6C6E4 /* PMAjustes.xib in Resources */,
 				AF6AE0F3181039B400EF1365 /* camara.png in Resources */,
 				AF6AE0DA180F86C100EF1365 /* atras.png in Resources */,
 				AF6AE0D9180F86C100EF1365 /* ajustes.png in Resources */,
@@ -406,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF6AE0A1180F84AF00EF1365 /* main.m in Sources */,
+				AFCB3BED181578F100B6C6E4 /* PMConnectionHandler.m in Sources */,
 				AFEF94741814DC0B0086CDED /* PMVideoViewController.m in Sources */,
 				AF6AE0A5180F84AF00EF1365 /* PMAppDelegate.m in Sources */,
 				AFEF946F1811F3EF0086CDED /* Reachability.m in Sources */,
@@ -414,6 +437,7 @@
 				AF6AE0F0180FA0C500EF1365 /* PMAudioManager.m in Sources */,
 				AF6AE0C7180F851400EF1365 /* PMPrincipalViewController.m in Sources */,
 				AFEF94641811BA670086CDED /* PMUtilityManager.m in Sources */,
+				AFCB3BEF181578FF00B6C6E4 /* PMAjustes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

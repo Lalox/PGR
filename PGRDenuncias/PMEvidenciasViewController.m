@@ -184,4 +184,8 @@
     [audioManager playWithURL:url];
 }
 
+-(void)finishRecordingPlayingWithAudioUrl:(NSURL *)url{
+
+}
+
 @end

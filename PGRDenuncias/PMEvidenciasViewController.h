@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PMAutorizacionViewController.h"
 
-@interface PMEvidenciasViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface PMEvidenciasViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, PMAudioManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *cameraBtn;
 @property (strong, nonatomic) IBOutlet UIButton *microBtn;
