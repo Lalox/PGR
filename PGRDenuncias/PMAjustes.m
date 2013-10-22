@@ -30,6 +30,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	tfIP.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"URL_AUDIO_PGR"];
+	
+	UIBarButtonItem *btnGuardar = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(guardarIP:)];
+	
+	[self.navigationItem setRightBarButtonItem:btnGuardar];
 }
 
 - (void)didReceiveMemoryWarning

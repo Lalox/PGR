@@ -16,8 +16,8 @@
 
 @synthesize delegado;
 
--(void)consumeServicioURL:(NSURL *)url conAudio:(NSData *)audioData{
 
+-(void)construyePeticion:(NSURL *)url mediaData:(NSData *)mediaData nombreArchivo:(NSString *)nombreArchivo{
 	
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	[request setURL:url];
@@ -31,16 +31,16 @@
 	[body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	//---
-
-	[body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"archivo[]\"; filename=\"reporteiOS.caf\"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+	
+	[body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"archivo[]\"; filename=\"%@\"\r\n", nombreArchivo] dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	//---
 	
 	[body appendData:[[NSString stringWithFormat:@"Content-Type: application/octet-stream\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-	[body appendData:[NSData dataWithData:audioData]];
+	[body appendData:[NSData dataWithData:mediaData]];
 	[body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
 	[request setHTTPBody:body];
-
+	
 	connection = [NSURLConnection connectionWithRequest:request delegate:self];
 	
 	if (connection != nil) {
@@ -51,7 +51,15 @@
 	
 }
 
--(void)consumeServicioURL:(NSURL *)url conImagen:(NSData *)data{
+-(void)consumeServicioURL:(NSURL *)url conAudio:(NSData *)audioData titulo:(NSString *)titulo{
+
+	[self construyePeticion:url mediaData:audioData nombreArchivo:titulo];
+	
+}
+
+-(void)consumeServicioURL:(NSURL *)url conImagen:(NSData *)data titulo:(NSString *)titulo{
+
+	[self construyePeticion:url mediaData:data nombreArchivo:titulo];
 	
 }
 

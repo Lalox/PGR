@@ -38,6 +38,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	[[[UIAlertView alloc] initWithTitle:@"PGR" message:@"Presione el botón de micrófono para registrar datos personales y médicos" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil] show];
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,7 +92,7 @@
 	
 	NSURL *url = [NSURL URLWithString:strUrl];
 	
-	[connection consumeServicioURL:url conAudio:[NSData dataWithContentsOfURL:urlAudio]];
+	[connection consumeServicioURL:url conAudio:[NSData dataWithContentsOfURL:urlAudio] titulo:@"reporteiOS.caf"];
 }
 
 #pragma mark PMConnectionHandler Delegate

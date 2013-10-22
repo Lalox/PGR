@@ -29,7 +29,8 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.navigationItem.title = [[NSBundle mainBundle] localizedStringForKey:(@"Authorization") value:@"Autorización" table:nil];
+
+	[[[UIAlertView alloc] initWithTitle:@"PGR" message:@"Solicite autorización para realizar inspección superficial" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil] show];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -50,13 +51,9 @@
 
 #pragma mark PMAudioManagerDelegate Methods
 
-- (void)finishRecordingPlaying{
+- (void)finishRecordingPlayingWithAudioUrl:(NSURL *)url{
     PMVideoViewController *videoVC = [[PMVideoViewController alloc] initWithNibName:@"PMVideoViewController" bundle:nil];
     [self.navigationController pushViewController:videoVC animated:YES];
-}
-
-- (void)finishRecordingPlayingWithAudioUrl:(NSURL *)url{
-
 }
 
 @end

@@ -47,17 +47,66 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[[NSBundle mainBundle] localizedStringForKey:(@"Error") value:@"Error" table:nil] message:[[NSBundle mainBundle] localizedStringForKey:(@"NoConnection") value:@"No se detecta conexión a Internet ¿Desea continuar?" table:nil] delegate:self cancelButtonTitle:[[NSBundle mainBundle] localizedStringForKey:(@"OK") value:@"Aceptar" table:nil] otherButtonTitles:nil];
         [alert show];
     }else{
+		
+		[self enviarImagenes];
+		[self enviarAudios];
+		
         PMAutorizacionViewController *vc = [[PMAutorizacionViewController alloc]initWithNibName:@"PMAutorizacionViewController" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
+-(void)enviarImagenes{
+	
+	int i = 0;
+
+	for (UIImage *image in imagesArray) {
+		PMConnectionHandler *conn = [[PMConnectionHandler alloc] init];
+		conn.delegado = self;
+		
+		NSString *strUrl = [[NSUserDefaults standardUserDefaults] objectForKey:@"URL_AUDIO_PGR"];
+		
+		strUrl = [strUrl stringByReplacingOccurrencesOfString:@"http://" withString:@""];
+		strUrl = [NSString stringWithFormat:@"http://%@/pgr/recibeArchivos.php", strUrl];
+		NSURL *url = [NSURL URLWithString:strUrl];
+		
+		NSData *data = UIImagePNGRepresentation(image);
+		NSString *titulo = [NSString stringWithFormat:@"FotoiOS_%d.png", i++];
+		[conn consumeServicioURL:url conImagen:data titulo:titulo];
+	}
+	
+}
+
+-(void)enviarAudios{
+//	Audio_%d.caf
+	
+	for (NSString *titulo in audioArray) {
+		PMConnectionHandler *conn = [[PMConnectionHandler alloc] init];
+		conn.delegado = self;
+		
+		NSString *strUrl = [[NSUserDefaults standardUserDefaults] objectForKey:@"URL_AUDIO_PGR"];
+		
+		strUrl = [strUrl stringByReplacingOccurrencesOfString:@"http://" withString:@""];
+		strUrl = [NSString stringWithFormat:@"http://%@/pgr/recibeArchivos.php", strUrl];
+		NSURL *url = [NSURL URLWithString:strUrl];
+		
+		NSURL *urlMedia = [PMUtilityManager getPathWithName:titulo];
+		NSData *data = [NSData dataWithContentsOfURL:urlMedia];
+		
+		[conn consumeServicioURL:url conAudio:data titulo:(NSString *)titulo];
+	}
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
+	
+	[[[UIAlertView alloc] initWithTitle:@"PGR" message:@"Registre testimonios y fotografías del lugar de los hechos" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil] show];
 
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:_ID_IMAGE_CELL_];
     [_audioListTable registerClass:[UITableViewCell class] forCellReuseIdentifier:_ID_AUDIO_CELL_];
-    self.navigationItem.title = [[NSBundle mainBundle] localizedStringForKey:(@"Evidences") value:@"Evidencias" table:nil];
+
+//    self.navigationItem.title = [[NSBundle mainBundle] localizedStringForKey:(@"Evidences") value:@"Evidencias" table:nil];
+	
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[[NSBundle mainBundle] localizedStringForKey:(@"Send") value:@"Enviar" table:nil] style:UIBarButtonItemStyleBordered target:self action:@selector(sendInformation:)];
 }
 
@@ -145,7 +194,7 @@
 
 #pragma mark PMAudioManagerDelegate Methods
 
-- (void)finishRecordingPlaying{
+- (void)finishRecordingPlayingWithAudioUrl:(NSURL *)url{
     NSError *error;
     fileManger = [NSFileManager defaultManager];
     
@@ -184,8 +233,18 @@
     [audioManager playWithURL:url];
 }
 
--(void)finishRecordingPlayingWithAudioUrl:(NSURL *)url{
+#pragma mark ConnectionHandler
 
+-(void)connectionHandler:(PMConnectionHandler *)connectionHandler fallaConsumo:(NSString *)mensajeError{
+	
+}
+
+-(void)connectionHandler:(PMConnectionHandler *)connectionHandler terminaExitoso:(NSString *)mensaje{
+	
+}
+
+-(void)connectionHandlerTerminaProceso:(PMConnectionHandler *)connectionHandler{
+	
 }
 
 @end

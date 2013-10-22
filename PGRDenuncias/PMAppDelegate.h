@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PMPrincipalViewController.h"
 
 @interface PMAppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -14,9 +14,9 @@
 
 @property (weak) id<ConnectionHandlerDelegate>delegado;
 
--(void)consumeServicioURL:(NSURL *)url conAudio:(NSData *)data;
+-(void)consumeServicioURL:(NSURL *)url conAudio:(NSData *)audioData titulo:(NSString *)titulo;
 
--(void)consumeServicioURL:(NSURL *)url conImagen:(NSData *)data;
+-(void)consumeServicioURL:(NSURL *)url conImagen:(NSData *)data titulo:(NSString *)titulo;
 
 @end
 
